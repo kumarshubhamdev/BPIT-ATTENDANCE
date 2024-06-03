@@ -1,1 +1,1 @@
-bpitattendance.online
+https://bpitattendance.online/yash/html/
