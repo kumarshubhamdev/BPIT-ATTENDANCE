@@ -1,0 +1,214 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Display Students</title>
+    <link rel="stylesheet" href="view.css">
+    <script>
+        function selectRadioButton(buttonId) {
+            var buttons = document.querySelectorAll('.radio-button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('selected');
+            }
+            document.getElementById(buttonId).classList.add('selected');
+        }
+
+        function displayStudents() {
+            var searchType = document.querySelector('.radio-button.selected').getAttribute('data-search-type');
+            var searchText = document.getElementById("search_text").value.trim();
+            if (searchText === "") {
+                alert("Please enter a search term.");
+                return;
+            }
+
+            var studentList = document.getElementById("student_list");
+            var searchResult = document.getElementById("search_result");
+
+            if (searchType === "course") {
+                // Display course search result
+                studentList.innerHTML = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Date of Birth</th>
+                                <th>Batch Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>1990-01-01</td>
+                                <td>2021-25</td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td>1992-05-15</td>
+                                <td>2021-25</td>
+                            </tr>
+                            <tr>
+                                <td>Michael Johnson</td>
+                                <td>1988-11-30</td>
+                                <td>2021-25</td>
+                            </tr>
+                        </tbody>
+                    </table>`;
+                searchResult.innerHTML = "";
+            } else {
+                // Display enrollment search result
+                searchResult.innerHTML = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Date of Birth</th>
+                                <th>Batch Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>1990-01-01</td>
+                                <td>2021-25</td>
+                            </tr>
+                        </tbody>
+                    </table>`;
+                studentList.innerHTML = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Teacher Dashboard</h1>
+    <div id="search_option">
+        <button id="search_by_course" class="radio-button selected" data-search-type="course" onclick="selectRadioButton('search_by_course')">Search by Course ID</button>
+        <button id="search_by_enrollment" class="radio-button" data-search-type="enrollment" onclick="selectRadioButton('search_by_enrollment')">Search by Enrollment Number</button>
+    </div>
+    <div id="search">
+        <input type="text" id="search_text" placeholder="Enter search term">
+        <button id="click" onclick="displayStudents()">Search</button>
+    </div>
+    <div id="student_list"></div>
+    <div id="search_result"></div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Students</title>
+    <link rel="stylesheet" href="view.css">
+    <script>
+        function selectRadioButton(buttonId) {
+            var buttons = document.querySelectorAll('.radio-button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('selected');
+            }
+            document.getElementById(buttonId).classList.add('selected');
+        }
+
+        function displayStudents() {
+            var searchType = document.querySelector('.radio-button.selected').getAttribute('data-search-type');
+            var searchText = document.getElementById("search_text").value.trim();
+            if (searchText === "") {
+                alert("Please enter a search term.");
+                return;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var response = xhr.responseText;
+                        if (searchType === "course") {
+                            document.getElementById("student_list").innerHTML = response;
+                            document.getElementById("search_result").innerHTML = "";
+                        } else {
+                            document.getElementById("search_result").innerHTML = response;
+                            document.getElementById("student_list").innerHTML = "";
+                        }
+                    } else {
+                        alert('There was a problem with the request.');
+                    }
+                }
+            };
+
+            xhr.open("GET", "get_students.php?search_type=" + searchType + "&search_text=" + searchText, true);
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>Teacher Dashboard</h1>
+    <div id="search_option">
+        <button id="search_by_course" class="radio-button selected" data-search-type="course" onclick="selectRadioButton('search_by_course')">Search by Course ID</button>
+        <button id="search_by_enrollment" class="radio-button" data-search-type="enrollment" onclick="selectRadioButton('search_by_enrollment')">Search by Enrollment Number</button>
+    </div>
+    <div id="search">
+        <input type="text" id="search_text" placeholder="Enter search term">
+        <button id="click" onclick="displayStudents()">Search</button>
+    </div>
+    <div id="student_list"></div>
+    <div id="search_result"></div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Students</title>
+    <link rel="stylesheet" href="view.css">
+    <script>
+        function selectRadioButton(buttonId) {
+            var buttons = document.querySelectorAll('.radio-button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('selected');
+            }
+            document.getElementById(buttonId).classList.add('selected');
+        }
+
+        function displayStudents() {
+            var searchType = document.querySelector('.radio-button.selected').getAttribute('data-search-type');
+            var searchText = document.getElementById("search_text").value.trim();
+            if (searchText === "") {
+                alert("Please enter a search term.");
+                return;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var response = xhr.responseText;
+                        if (searchType === "course") {
+                            document.getElementById("student_list").innerHTML = response;
+                            document.getElementById("search_result").innerHTML = "";
+                        } else {
+                            document.getElementById("search_result").innerHTML = response;
+                            document.getElementById("student_list").innerHTML = "";
+                        }
+                    } else {
+                        alert('There was a problem with the request.');
+                    }
+                }
+            };
+
+            xhr.open("GET", "get_students.php?search_type=" + searchType + "&search_text=" + searchText, true);
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>Teacher Dashboard</h1>
+    <div id="search_option">
+        <button id="search_by_course" class="radio-button selected" data-search-type="course" onclick="selectRadioButton('search_by_course')">Search by Course ID</button>
+        <button id="search_by_enrollment" class="radio-button" data-search-type="enrollment" onclick="selectRadioButton('search_by_enrollment')">Search by Enrollment Number</button>
+    </div>
+    <div id="search">
+        <input type="text" id="search_text" placeholder="Enter search term">
+        <button id="click" onclick="displayStudents()">Search</button>
+    </div>
+    <div id="student_list"></div>
+    <div id="search_result"></div>
+</body>
+</html>

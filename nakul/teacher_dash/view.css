@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 70px;
+    letter-spacing: 3px;
+    background-color: #c7c7c7;
+}
+
+.radio-button {
+    display: inline-block;
+    background-color: #c3c3c3;
+    border: 2px solid #000000;
+    padding: 8px 16px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.radio-button.selected {
+    background-color: #000000;
+    color: #fff;
+}
+
+input[type="numbers"] {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 20px;
+    background-color: #989898;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #000000;
+}
+
+#search_option {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#student_list,
+#search_result {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #c3c3c3;
+    /* color: #fff; */
+}
+
+#student_list table,
+#search_result table {
+    margin-top: 10px;
+}
+
+#search {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#search_by_enrollment, #search_by_course {
+    width: 300px;
+    height: 50px;
+    font-size: 18px;
+}
+
+#search_text {
+    height: 40px;
+    width: 100%;
+    font-size: 20px;
+    padding-left: 14px;
+}
+
+#click {
+    width: 20%;
+    /* height: 51px; */
+    font-size: 20px;
+}
